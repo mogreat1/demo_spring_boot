@@ -23,4 +23,10 @@ public class TeacherController {
     public void createTeacher(@RequestBody Teacher teacher) {
         teacherService.createTeacher(teacher);
     }
+
+    @DeleteMapping(path = "{teacherId}")
+    public void fireTeacher(@PathVariable("teacherId") Long teacherId) {
+        teacherService.fireTeacher(teacherId);
+    }
+
 }

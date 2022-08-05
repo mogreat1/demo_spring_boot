@@ -35,4 +35,11 @@ public class TeacherService {
         }
         teacherRepository.save(teacher);
     }
+
+    public void fireTeacher(Long teacherId) {
+        teacherRepository.findById(teacherId)
+                .orElseThrow(() -> new IllegalStateException("Teacher with id: " + teacherId + " doesn't exist"));
+
+        teacherRepository.deleteById(teacherId);
+    }
 }
